@@ -465,6 +465,38 @@
 .la-hero-markers   { animation: la-fade-in 1400ms var(--la-ease-out) 1100ms both; }
 .la-hero-scroll    { animation: la-fade-in 1400ms var(--la-ease-out) 1300ms both; }
 
+.la-hero-bg {
+  background-image: url('/V1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-width: 768px) {
+  .la-hero-bg {
+    background-image: url('/Hero Mobile.png');
+    background-size: contain;
+    background-position: center top !important;
+    background-repeat: no-repeat;
+  }
+  .la-hero-content {
+    position: absolute;
+    left: 50%;
+    bottom: 23svh;
+    width: min(82vw, 320px);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+    transform: translateX(-50%);
+  }
+  .la-hero-content .max-w-5xl {
+    max-width: none;
+  }
+  .la-hero-ctas .la-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* SCROLL PROGRESS BAR */
 .la-scroll-progress {
   position: fixed;

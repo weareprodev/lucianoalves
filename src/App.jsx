@@ -375,6 +375,11 @@ const PageInicio = ({ setCurrentPage }) => {
       const bgNode = heroBgRef.current;
       if (!heroNode || !bgNode) return;
 
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        bgNode.style.backgroundPosition = 'center top';
+        return;
+      }
+
       const heroTop = heroNode.offsetTop;
       const heroHeight = heroNode.offsetHeight || window.innerHeight;
       const y = window.scrollY || 0;
@@ -402,12 +407,11 @@ const PageInicio = ({ setCurrentPage }) => {
   return (
     <div className="la-page">
     {/* HERO */}
-    <section ref={heroRef} className="relative min-h-screen flex items-end justify-center overflow-hidden">
+    <section ref={heroRef} className="relative min-h-[100svh] md:min-h-screen flex items-end justify-center overflow-hidden">
       <div
         ref={heroBgRef}
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 la-hero-bg"
         style={{
-          backgroundImage: 'url(/V1.jpg)',
           backgroundPosition: 'center 0%',
           filter: 'grayscale(0.06) brightness(1.01)',
           animation: 'la-fade-in 2000ms var(--la-ease-out) both',
@@ -418,7 +422,7 @@ const PageInicio = ({ setCurrentPage }) => {
         style={{ backgroundImage: 'linear-gradient(to top, rgba(232,230,225,0.22) 0%, rgba(232,230,225,0.08) 45%, rgba(232,230,225,0.03) 100%)' }}
       />
 
-      <Container className="relative z-10 w-full pb-14 md:pb-20 lg:pb-24">
+      <Container className="la-hero-content relative z-10 w-full pb-24 md:pb-20 lg:pb-24">
         <div className="max-w-5xl mx-auto">
           <div className="la-hero-ctas flex flex-col sm:flex-row gap-3 justify-center items-center">
             <Button variant="solid" className="la-btn-hero-primary" onClick={() => setCurrentPage('contato')}>AGENDAR CONSULTA</Button>
